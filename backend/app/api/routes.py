@@ -1,4 +1,4 @@
-# backend/app/api/routes.py
+ï»¿# backend/app/api/routes.py
 from __future__ import annotations
 
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Depends
@@ -15,7 +15,7 @@ import numpy as np
 import faiss
 import fitz  # PyMuPDF
 
-# Embedding & FAISS yardýmcýlarý (tek kaynaktan)
+# Embedding & FAISS yardÄ±mcÄ±larÄ± (tek kaynaktan)
 from app.core.embeddings import (
     embed_texts,
     build_faiss_index,
@@ -23,7 +23,7 @@ from app.core.embeddings import (
     load_embeddings,
 )
 
-# LLM cevabý için merkezi sarmalayýcý
+# LLM cevabÄ± iÃ§in merkezi sarmalayÄ±cÄ±
 from app.core.llm_responder import LLMResponder
 
 # ---- DB (MSSQL - SQLAlchemy + pyodbc) ----
@@ -49,7 +49,7 @@ PROC_DIR = DATA_DIR / "processed"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
-# LLM tekil örnek
+# LLM tekil Ã¶rnek
 llm = LLMResponder()
 
 # =============================
@@ -81,7 +81,7 @@ class BookOut(BaseModel):
 class AskBody(BaseModel):
     question: str
     session_id: Optional[str] = None
-    user_id: Optional[str] = None  # ChatSessions FK gereði zorunlu
+    user_id: Optional[str] = None  # ChatSessions FK gereÄŸi zorunlu
 
 class ChatResponse(BaseModel):
     answer: str
@@ -123,7 +123,7 @@ def _deserialize_vec(s: str) -> np.ndarray:
     return np.array(arr, dtype="float32")
 
 def _build_faiss_from_db(db: Session, book_id: str) -> Tuple[faiss.Index, List[str]]:
-    # Embeddings'ten bu kitaba ait tüm vektörleri ve metinleri sýrayla çek
+    # Embeddings'ten bu kitaba ait tÃ¼m vektÃ¶rleri ve metinleri sÄ±rayla Ã§ek
     rows = (
         db.execute(
             select(
@@ -135,7 +135,7 @@ def _build_faiss_from_db(db: Session, book_id: str) -> Tuple[faiss.Index, List[s
         .all()
     )
     if not rows:
-        raise HTTPException(status_code=404, detail="Bu kitap için embeddings bulunamadý.")
+        raise HTTPException(status_code=404, detail="No embeddings found for this book.")
 
     texts: List[str] = []
     vecs: List[np.ndarray] = []
@@ -145,7 +145,7 @@ def _build_faiss_from_db(db: Session, book_id: str) -> Tuple[faiss.Index, List[s
         texts.append(seg_text)
         vecs.append(_deserialize_vec(v_str))
     if not vecs:
-        raise HTTPException(status_code=404, detail="Embeddings boþ.")
+        raise HTTPException(status_code=404, detail="Embeddings empty.")
 
     V = np.vstack(vecs).astype("float32")
     index = build_faiss_index(V, metric="l2")
@@ -163,19 +163,19 @@ async def upload_book(
     file: UploadFile = File(...),
     db: Session = Depends(get_db),
 ):
-    # (Þimdilik) sadece PDF
+    # (Åžimdilik) sadece PDF
     if file.content_type not in ("application/pdf",):
-        raise HTTPException(status_code=400, detail="Þimdilik sadece PDF destekleniyor.")
+        raise HTTPException(status_code=400, detail="Only PDF is supported for now.")
 
     book_id = str(uuid4())
     raw_pdf_path = RAW_DIR / f"{book_id}.pdf"
     chunks_path = PROC_DIR / f"{book_id}_chunks.json"
 
-    # Dosyayý kaydet
+    # DosyayÄ± kaydet
     with open(raw_pdf_path, "wb") as f:
         f.write(await file.read())
 
-    # Metin çýkar + temizle + chunkla
+    # Metin Ã§Ä±kar + temizle + chunkla
     raw = extract_text_from_pdf(raw_pdf_path)
     cleaned = clean_text(raw)
     chunks = chunk_text(cleaned)
@@ -183,7 +183,7 @@ async def upload_book(
     with open(chunks_path, "w", encoding="utf-8") as f:
         json.dump(chunks, f, ensure_ascii=False, indent=2)
 
-    # Books tablosuna kayýt
+    # Books tablosuna kayÄ±t
     db.execute(
         insert(Books).values(
             id=book_id,
@@ -208,28 +208,28 @@ async def upload_book(
 async def embed_book(book_id: str, db: Session = Depends(get_db)):
     chunks_path = PROC_DIR / f"{book_id}_chunks.json"
     if not chunks_path.exists():
-        raise HTTPException(status_code=404, detail="Chunk dosyasý bulunamadý")
+        raise HTTPException(status_code=404, detail="Chunk file not found")
 
     with open(chunks_path, "r", encoding="utf-8") as f:
         chunks = json.load(f)
 
     texts = [c["chunk_text"] for c in chunks]
 
-    # Embedding üret (tek kaynaktan)
+    # Embedding Ã¼ret (tek kaynaktan)
     vecs = embed_texts(texts, normalize=False)  # cosine istiyorsan True + metric="ip"
     dim = int(vecs.shape[1])
 
-    # FAISS index'i belleðe kur ve cache'le
+    # FAISS index'i belleÄŸe kur ve cache'le
     index = build_faiss_index(vecs, metric="l2")
     faiss_indexes[book_id] = (index, texts)
 
     # Disk persist (opsiyonel)
     save_embeddings(book_id, vecs)  # data/processed/{book_id}_embeddings.npy
 
-    # DB'ye Embeddings kayýtlarý (her chunk satýrý)
+    # DB'ye Embeddings kayÄ±tlarÄ± (her chunk satÄ±rÄ±)
     now = datetime.datetime.utcnow()
     rows = []
-    # JSON string'e çevir: NVARCHAR(MAX) 'vector' alanýna yazacaðýz
+    # JSON string'e Ã§evir: NVARCHAR(MAX) 'vector' alanÄ±na yazacaÄŸÄ±z
     for c, v in zip(chunks, vecs):
         rows.append(
             {
@@ -255,7 +255,7 @@ async def embed_book(book_id: str, db: Session = Depends(get_db)):
 
 @router.post("/chat/ask", response_model=ChatResponse)
 async def chat_ask(body: AskBody, book_id: str, db: Session = Depends(get_db)):
-    # FAISS cache hazýr deðilse DB'den yükleyip kur
+    # FAISS cache hazÄ±r deÄŸilse DB'den yÃ¼kleyip kur
     if book_id not in faiss_indexes:
         index, texts = _build_faiss_from_db(db, book_id)
         faiss_indexes[book_id] = (index, texts)
@@ -269,24 +269,24 @@ async def chat_ask(body: AskBody, book_id: str, db: Session = Depends(get_db)):
     idxs = [int(i) for i in I[0] if 0 <= i < len(texts)]
     ctx_chunks = [texts[i] for i in idxs]
 
-    # LLM cevabý (tek sarmalayýcý)
+    # LLM cevabÄ± (tek sarmalayÄ±cÄ±)
     answer_text, _meta = llm.generate(
         question=body.question,
         contexts=ctx_chunks,
         source_indices=idxs,
         style={"temperature": 0.4, "max_tokens": 512},
         provider="openai",  # local istersen "local"
-        add_citations=False,  # citations dizgesini kendimiz saklýyoruz
+        add_citations=False,  # citations dizgesini kendimiz saklÄ±yoruz
     )
     answer = answer_text
 
-    # ChatSessions + Messages kayýtlarý
+    # ChatSessions + Messages kayÄ±tlarÄ±
     if not body.user_id:
-        raise HTTPException(status_code=400, detail="user_id zorunludur (ChatSessions FK için).")
+        raise HTTPException(status_code=400, detail="user_id is required (for ChatSessions FK)")
 
     session_id = body.session_id or str(uuid4())
 
-    # Yeni session ise oluþtur
+    # Yeni session ise oluÅŸtur
     if body.session_id is None:
         db.execute(
             insert(ChatSessions).values(
@@ -298,7 +298,7 @@ async def chat_ask(body: AskBody, book_id: str, db: Session = Depends(get_db)):
             )
         )
 
-    # Mesajlarý kaydet
+    # MesajlarÄ± kaydet
     db.execute(
         insert(Messages).values(
             id=str(uuid4()),
@@ -385,6 +385,6 @@ async def status(db: Session = Depends(get_db)):
         "sessions": int(sessions_count or 0),
         "faiss_loaded": list(faiss_indexes.keys()),
         "embed_model": EMBED_MODEL_ID,
-        "llm_ready": True,  # LLMResponder içinde anahtar kontrolü var; burada basitleþtiriyoruz
+        "llm_ready": True,  # LLMResponder iÃ§inde anahtar kontrolÃ¼ var; burada basitleÅŸtiriyoruz
         "db": "mssql",
     }

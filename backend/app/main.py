@@ -1,13 +1,13 @@
-# backend/app/main.py
+ï»¿# backend/app/main.py
 import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# Router'ý içe al
+# Router'Ä± iÃ§e al
 from app.api.routes import router as api_router
 
 APP_TITLE = os.getenv("APP_TITLE", "LLM Turkish Book Assistant API")
-APP_DESC = "Kitap yükleme, iþleme, embedding ve RAG servisleri"
+APP_DESC = "Book loading, processing, embedding and RAG services"
 APP_VERSION = os.getenv("APP_VERSION", "1.0.0")
 
 app = FastAPI(title=APP_TITLE, description=APP_DESC, version=APP_VERSION)

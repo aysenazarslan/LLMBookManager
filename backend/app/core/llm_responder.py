@@ -1,4 +1,4 @@
-# llm_responder.py
+ï»¿# llm_responder.py
 from __future__ import annotations
 from typing import List, Dict, Any, Optional, Tuple
 import os
@@ -17,8 +17,8 @@ except Exception:
     HAS_TRANSFORMERS = False
 
 DEFAULT_SYSTEM = (
-    "Türkçe konuþan, kýsa ve kaynaklara dayalý yanýt veren bir asistansýn. "
-    "Cevabýný baðlamdaki bilgiden emin olmadýðýn konularda geniþletme; 'baðlam yetersiz' de."
+    "TÃ¼rkÃ§e konuÅŸan, kÄ±sa ve kaynaklara dayalÄ± yanÄ±t veren bir asistansÄ±n. "
+    "CevabÄ±nÄ± baÄŸlamdaki bilgiden emin olmadÄ±ÄŸÄ±n konularda geniÅŸletme; 'baÄŸlam yetersiz' de."
 )
 
 class LLMResponder:
@@ -71,9 +71,9 @@ class LLMResponder:
     def _build_prompt(self, question: str, contexts: List[str]) -> str:
         ctx = "\n---\n".join(contexts)
         return (
-            "Aþaðýdaki baðlam sadece yardýmcý bilgidir. Sadece baðlamdaki bilgiden emin olduðun kýsýmlara dayanarak cevap ver. "
-            "Emin deðilsen 'baðlam yetersiz' de.\n\n"
-            f"Soru: {question}\n\nBaðlam:\n{ctx}\n\nCevap (Türkçe):"
+            "AÅŸaÄŸÄ±daki baÄŸlam sadece yardÄ±mcÄ± bilgidir. Sadece baÄŸlamdaki bilgiden emin olduÄŸun kÄ±sÄ±mlara dayanarak cevap ver. "
+            "Emin deÄŸilsen 'baÄŸlam yetersiz' de.\n\n"
+            f"Soru: {question}\n\nBaÄŸlam:\n{ctx}\n\nCevap (TÃ¼rkÃ§e):"
         )
 
     def _prune_context(self, contexts: List[str], idxs: List[int], budget_chars: int) -> Tuple[List[str], List[int]]:
@@ -91,7 +91,7 @@ class LLMResponder:
 
     def _generate_openai(self, prompt: str, system_prompt: str, style: Dict[str, Any]) -> str:
         if not (HAS_OPENAI and self.api_key):
-            return "[LLM yapýlandýrýlmadý] OPENROUTER_API_KEY/OPENAI_API_KEY ayarla."
+            return "[LLM yapÄ±landÄ±rÄ±lmadÄ±] OPENROUTER_API_KEY/OPENAI_API_KEY ayarla."
         try:
             resp = openai.ChatCompletion.create(
                 model=self.gen_model_id,
@@ -124,7 +124,7 @@ class LLMResponder:
     def _generate_local(self, prompt: str, style: Dict[str, Any]) -> str:
         pipe = self._lazy_local_pipe()
         if pipe is None:
-            return "[Local LLM hazýr deðil] transformers kurulu mu ve model eriþilebilir mi?"
+            return "[Local LLM hazÄ±r deÄŸil] transformers kurulu mu ve model eriÅŸilebilir mi?"
         out = pipe(
             prompt,
             max_new_tokens=style.get("max_tokens", 512),

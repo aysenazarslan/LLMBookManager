@@ -1,20 +1,20 @@
-"""
+ï»¿"""
 embeddings.py
 -----------------
-Tek sorumluluðu: metinleri embedding'e çevirmek ve FAISS index iþlemlerini yönetmek.
+Tek sorumluluÄŸu: metinleri embedding'e Ã§evirmek ve FAISS index iÅŸlemlerini yÃ¶netmek.
 
-Kullaným:
+KullanÄ±m:
     from embeddings import get_embedder, embed_texts, build_faiss_index,
         save_embeddings, load_embeddings, save_faiss_index, load_faiss_index
 
-Ortam Deðiþkenleri:
-    EMBED_MODEL_ID : HF SentenceTransformers model id (varsayýlan: paraphrase-multilingual-mpnet-base-v2)
-    EMBED_BATCH    : Batch size (varsayýlan: 32)
-    DATA_DIR       : Veri klasörü (varsayýlan: ./data)
+Ortam DeÄŸiÅŸkenleri:
+    EMBED_MODEL_ID : HF SentenceTransformers model id (varsayÄ±lan: paraphrase-multilingual-mpnet-base-v2)
+    EMBED_BATCH    : Batch size (varsayÄ±lan: 32)
+    DATA_DIR       : Veri klasÃ¶rÃ¼ (varsayÄ±lan: ./data)
 
 Notlar:
-    - Çýktýlar float32 olarak döndürülür (FAISS uyumu için).
-    - Normalize (L2) opsiyonu ile kosinüs benzerliðine yakýn davranýþ elde edilir.
+    - Ã‡Ä±ktÄ±lar float32 olarak dÃ¶ndÃ¼rÃ¼lÃ¼r (FAISS uyumu iÃ§in).
+    - Normalize (L2) opsiyonu ile kosinÃ¼s benzerliÄŸine yakÄ±n davranÄ±ÅŸ elde edilir.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ import faiss
 from sentence_transformers import SentenceTransformer
 
 # -----------------------------
-# Konfigürasyon
+# KonfigÃ¼rasyon
 # -----------------------------
 EMBED_MODEL_ID = os.getenv("EMBED_MODEL_ID", "sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
 EMBED_BATCH = int(os.getenv("EMBED_BATCH", "32"))
@@ -35,12 +35,12 @@ DATA_DIR = Path(os.getenv("DATA_DIR", "data"))
 PROC_DIR = DATA_DIR / "processed"
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 
-# Tekil (lazy) yüklenen model nesnesi
+# Tekil (lazy) yÃ¼klenen model nesnesi
 __EMBEDDER: Optional[SentenceTransformer] = None
 
 
 def get_embedder() -> SentenceTransformer:
-    """SentenceTransformer embedder'ý lazy-load eder ve cache'ler."""
+    """SentenceTransformer embedder'Ä± lazy-load eder ve cache'ler."""
     global __EMBEDDER
     if __EMBEDDER is None:
         __EMBEDDER = SentenceTransformer(EMBED_MODEL_ID)
@@ -52,11 +52,11 @@ def _to_float32(arr: np.ndarray) -> np.ndarray:
 
 
 def embed_texts(texts: List[str], normalize: bool = False, batch_size: Optional[int] = None) -> np.ndarray:
-    """Metin listesini embedding vektörlerine çevirir.
+    """Metin listesini embedding vektÃ¶rlerine Ã§evirir.
 
     Args:
         texts: Girdi metinleri
-        normalize: L2 normalize edip etmeyeceði (cosine benzerliðine yakýn arama için önerilir)
+        normalize: L2 normalize edip etmeyeceÄŸi (cosine benzerliÄŸine yakÄ±n arama iÃ§in Ã¶nerilir)
         batch_size: Override batch size
 
     Returns:
@@ -76,11 +76,11 @@ def embed_texts(texts: List[str], normalize: bool = False, batch_size: Optional[
 
 
 # -----------------------------
-# FAISS Yardýmcýlarý
+# FAISS YardÄ±mcÄ±larÄ±
 # -----------------------------
 
 def build_faiss_index(vectors: np.ndarray, metric: str = "l2") -> faiss.Index:
-    """Verilen vektörler için basit bir FAISS index döndürür.
+    """Verilen vektÃ¶rler iÃ§in basit bir FAISS index dÃ¶ndÃ¼rÃ¼r.
 
     Args:
         vectors: shape (N, D) float32
@@ -143,7 +143,7 @@ def load_faiss_index(book_id: str) -> faiss.Index:
 
 
 # -----------------------------
-# Yüksek seviye akýþlar
+# YÃ¼ksek seviye akÄ±ÅŸlar
 # -----------------------------
 
 def embed_and_index(texts: List[str], book_id: str, normalize: bool = False, metric: str = "l2") -> Tuple[np.ndarray, faiss.Index]:
@@ -156,7 +156,7 @@ def embed_and_index(texts: List[str], book_id: str, normalize: bool = False, met
 
 
 def ensure_index(book_id: str, metric: str = "l2") -> faiss.Index:
-    """Diskte FAISS varsa yükler; yoksa embeddings'i yükleyip kurar."""
+    """Diskte FAISS varsa yÃ¼kler; yoksa embeddings'i yÃ¼kleyip kurar."""
     try:
         return load_faiss_index(book_id)
     except FileNotFoundError:

@@ -6,8 +6,8 @@ SERVER = r"DESKTOP-FSML3LC\MSSQLSERVER01"
 DB     = "LLM"
 
 # --- SQL Authentication ---
-USER = "sa"
-PWD  = "Parola123"  # deðiþtir
+USER = "llmuser"
+PWD  = "1q"  
 conn_str = (
     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
     f"SERVER={SERVER};DATABASE={DB};UID={USER};PWD={PWD};"
@@ -28,7 +28,11 @@ try:
     with engine.connect() as conn:
         ver = conn.execute(text("SELECT @@VERSION")).scalar_one()
         ok  = conn.execute(text("SELECT 1")).scalar_one()
-        print("DB baðlantýsý OK:", ok == 1)
-        print("SQL Server sürümü:", ver.splitlines()[0])
+        if ok == 1:
+            print("OK")
+        else:
+            print("NO")
+    
+        print("SQL Server surum:", ver.splitlines()[0])
 except Exception as e:
-    print("DB baðlantý HATASI:", e)
+    print("ERROR:", e)

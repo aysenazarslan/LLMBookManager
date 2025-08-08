@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>LLMBookManagerAPI</Name>
     <RootNamespace>LLMBookManager</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

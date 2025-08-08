@@ -1,12 +1,12 @@
-from sqlalchemy import create_engine
+ï»¿from sqlalchemy import create_engine
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import sessionmaker
 
-# MSSQL baðlantý bilgileri
+# MSSQL baÄŸlantÄ± bilgileri
 DATABASE_SERVER = r"DESKTOP-FSML3LC\MSSQLSERVER01"
 DATABASE_NAME = "LLM"
-USERNAME = "sa"          # SQL Server kullanýcý adýn
-PASSWORD = "145395"   # Þifren
+USERNAME = "llmuser"          # SQL Server kullanÄ±cÄ± adÄ±n
+PASSWORD = "1q"   # Åžifren
 
 # pyodbc connection string
 DATABASE_URL = (
@@ -14,7 +14,7 @@ DATABASE_URL = (
     "?driver=ODBC+Driver+17+for+SQL+Server"
 )
 
-# Engine oluþtur
+# Engine oluÅŸtur
 engine = create_engine(DATABASE_URL)
 
 # ORM Base

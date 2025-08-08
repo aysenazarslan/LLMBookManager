@@ -1,37 +1,37 @@
-"""
+ï»¿"""
 tts_engine.py
 -------------
-Tek sorumluluk: Metni sese (TTS) dönüþtürmek.
+Tek sorumluluk: Metni sese (TTS) dÃ¶nÃ¼ÅŸtÃ¼rmek.
 
-Desteklenen saðlayýcýlar (backend):
- - gTTS       (hýzlý, ücretsiz; MP3)
- - Google     (Google Cloud Text-to-Speech; MP3/WAV/OGG; üretim için önerilir)
+Desteklenen saÄŸlayÄ±cÄ±lar (backend):
+ - gTTS       (hÄ±zlÄ±, Ã¼cretsiz; MP3)
+ - Google     (Google Cloud Text-to-Speech; MP3/WAV/OGG; Ã¼retim iÃ§in Ã¶nerilir)
  - Azure      (Azure Cognitive Services Speech; WAV)
  - Coqui      (Local TTS; WAV)
 
-Ortam deðiþkenleri:
-  BACKEND_TTS           : varsayýlan backend (gtts|google|azure|coqui) [default: gtts]
-  TTS_OUTPUT_DIR        : çýktý klasörü [default: ./data/tts]
+Ortam deÄŸiÅŸkenleri:
+  BACKEND_TTS           : varsayÄ±lan backend (gtts|google|azure|coqui) [default: gtts]
+  TTS_OUTPUT_DIR        : Ã§Ä±ktÄ± klasÃ¶rÃ¼ [default: ./data/tts]
 
   # Google
   GOOGLE_APPLICATION_CREDENTIALS : service account json yolu
   GOOGLE_TTS_AUDIO_ENCODING      : MP3|LINEAR16|OGG_OPUS [default: MP3]
 
   # Azure
-  AZURE_SPEECH_KEY      : Azure Speech anahtarý
-  AZURE_SPEECH_REGION   : ör. westeurope
+  AZURE_SPEECH_KEY      : Azure Speech anahtarÄ±
+  AZURE_SPEECH_REGION   : Ã¶r. westeurope
   AZURE_SPEECH_FORMAT   : Riff16Khz16BitMonoPcm | Raw24Khz16BitMonoPcm vs. [default: Riff16Khz16BitMonoPcm]
 
   # Coqui
-  COQUI_MODEL_ID        : ör. "tts_models/trk/ek/ek"
+  COQUI_MODEL_ID        : Ã¶r. "tts_models/trk/ek/ek"
 
-Örnek kullaným:
+Ã–rnek kullanÄ±m:
   from tts_engine import synthesize_tts
-  path = synthesize_tts("Merhaba dünya", voice="tr-TR-Standard-A", backend="google")
+  path = synthesize_tts("Merhaba dÃ¼nya", voice="tr-TR-Standard-A", backend="google")
 
 Not:
-  - Fonksiyon, üretilen ses dosyasýnýn tam yolunu döndürür.
-  - Hata durumunda Exception fýrlatýr.
+  - Fonksiyon, Ã¼retilen ses dosyasÄ±nÄ±n tam yolunu dÃ¶ndÃ¼rÃ¼r.
+  - Hata durumunda Exception fÄ±rlatÄ±r.
 """
 from __future__ import annotations
 from typing import Optional
@@ -40,7 +40,7 @@ import os
 import time
 import uuid
 
-# Ýsteðe baðlý baðýmlýlýklar: import hatalarýný yumuþat
+# Ä°steÄŸe baÄŸlÄ± baÄŸÄ±mlÄ±lÄ±klar: import hatalarÄ±nÄ± yumuÅŸat
 try:
     from gtts import gTTS
     HAS_GTTS = True
@@ -86,19 +86,19 @@ def synthesize_tts(text: str,
                    pitch: float = 0.0,
                    volume_gain_db: float = 0.0,
                    audio_format: Optional[str] = None) -> Path:
-    """Metinden ses üret ve dosya yolunu döndür.
+    """Metinden ses Ã¼ret ve dosya yolunu dÃ¶ndÃ¼r.
 
     Args:
-      text: Türkçe metin
-      voice: Saðlayýcýya göre ses kimliði (gTTS için dil kodu kullanýlýr: 'tr')
+      text: TÃ¼rkÃ§e metin
+      voice: SaÄŸlayÄ±cÄ±ya gÃ¶re ses kimliÄŸi (gTTS iÃ§in dil kodu kullanÄ±lÄ±r: 'tr')
       backend: 'gtts' | 'google' | 'azure' | 'coqui'
-      speaking_rate: Konuþma hýzý (1.0 = normal)
-      pitch: Ton (yarým ton aralýðýna göre; saðlayýcýya baðlý)
-      volume_gain_db: Ses þiddeti (dB)
-      audio_format: Çýkýþ formatý (google: MP3|LINEAR16|OGG_OPUS; azure: format string)
+      speaking_rate: KonuÅŸma hÄ±zÄ± (1.0 = normal)
+      pitch: Ton (yarÄ±m ton aralÄ±ÄŸÄ±na gÃ¶re; saÄŸlayÄ±cÄ±ya baÄŸlÄ±)
+      volume_gain_db: Ses ÅŸiddeti (dB)
+      audio_format: Ã‡Ä±kÄ±ÅŸ formatÄ± (google: MP3|LINEAR16|OGG_OPUS; azure: format string)
     """
     if not text or not text.strip():
-        raise ValueError("Boþ metin verildi")
+        raise ValueError("BoÅŸ metin verildi")
 
     backend = (backend or DEFAULT_BACKEND).lower()
 
@@ -120,7 +120,7 @@ def synthesize_tts(text: str,
 
 def _tts_gtts(text: str, lang: str = "tr") -> Path:
     if not HAS_GTTS:
-        raise RuntimeError("gTTS kurulu deðil: pip install gTTS")
+        raise RuntimeError("gTTS kurulu deÄŸil: pip install gTTS")
     tts = gTTS(text=text, lang=lang)
     out = _unique_name("tts_gtts", "mp3")
     tts.save(str(out))
@@ -133,10 +133,10 @@ def _tts_gtts(text: str, lang: str = "tr") -> Path:
 
 def _tts_google(text: str, voice: str, speaking_rate: float, pitch: float, volume_gain_db: float, audio_format: Optional[str]) -> Path:
     if not HAS_GOOGLE:
-        raise RuntimeError("google-cloud-texttospeech kurulu deðil: pip install google-cloud-texttospeech")
+        raise RuntimeError("google-cloud-texttospeech kurulu deÄŸil: pip install google-cloud-texttospeech")
     client = google_tts.TextToSpeechClient()
 
-    # Ses seçimi: ör. tr-TR-Standard-A / tr-TR-Wavenet-A
+    # Ses seÃ§imi: Ã¶r. tr-TR-Standard-A / tr-TR-Wavenet-A
     language_code = voice.split("-")[:2]
     language_code = "-".join(language_code) if language_code else "tr-TR"
 
@@ -185,24 +185,24 @@ def _tts_google(text: str, voice: str, speaking_rate: float, pitch: float, volum
 
 def _tts_azure(text: str, voice: str, speaking_rate: float, pitch: float, audio_format: Optional[str]) -> Path:
     if not HAS_AZURE:
-        raise RuntimeError("azure-cognitiveservices-speech kurulu deðil: pip install azure-cognitiveservices-speech")
+        raise RuntimeError("azure-cognitiveservices-speech kurulu deÄŸil: pip install azure-cognitiveservices-speech")
     key = os.getenv("AZURE_SPEECH_KEY")
     region = os.getenv("AZURE_SPEECH_REGION")
     if not key or not region:
         raise RuntimeError("AZURE_SPEECH_KEY ve AZURE_SPEECH_REGION gerekli")
 
     speech_config = speechsdk.SpeechConfig(subscription=key, region=region)
-    speech_config.speech_synthesis_voice_name = voice  # ör. tr-TR-AhmetNeural
+    speech_config.speech_synthesis_voice_name = voice  # Ã¶r. tr-TR-AhmetNeural
     fmt = audio_format or os.getenv("AZURE_SPEECH_FORMAT", "Riff16Khz16BitMonoPcm")
     speech_config.set_speech_synthesis_output_format(getattr(speechsdk.SpeechSynthesisOutputFormat, fmt))
 
     out = _unique_name("tts_azure", "wav")
     audio_cfg = speechsdk.audio.AudioOutputConfig(filename=str(out))
 
-    # SSML ile hýz/ton kontrolü
+    # SSML ile hÄ±z/ton kontrolÃ¼
     # <prosody rate="+10%" pitch="+0st"> ... </prosody>
     rate_pct = int((speaking_rate - 1.0) * 100)
-    pitch_st = int(pitch)  # basit dönüþüm
+    pitch_st = int(pitch)  # basit dÃ¶nÃ¼ÅŸÃ¼m
     ssml = f"""
     <speak version='1.0' xml:lang='tr-TR'>
       <voice name='{voice}'>
@@ -214,7 +214,7 @@ def _tts_azure(text: str, voice: str, speaking_rate: float, pitch: float, audio_
     synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_cfg)
     result = synthesizer.speak_ssml_async(ssml).get()
     if result.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
-        raise RuntimeError(f"Azure TTS baþarýsýz: {result.reason}")
+        raise RuntimeError(f"Azure TTS baÅŸarÄ±sÄ±z: {result.reason}")
     return out
 
 
@@ -228,8 +228,8 @@ def _get_coqui() -> CoquiTTS:
     if _COQUI_INSTANCE is not None:
         return _COQUI_INSTANCE
     if not HAS_COQUI:
-        raise RuntimeError("coqui TTS kurulu deðil: pip install TTS")
-    model_id = os.getenv("COQUI_MODEL_ID", "tts_models/trk/ek/ek")  # Türkçe örnek (varsa)
+        raise RuntimeError("coqui TTS kurulu deÄŸil: pip install TTS")
+    model_id = os.getenv("COQUI_MODEL_ID", "tts_models/trk/ek/ek")  # TÃ¼rkÃ§e Ã¶rnek (varsa)
     _COQUI_INSTANCE = CoquiTTS(model_id)
     return _COQUI_INSTANCE
 
@@ -237,6 +237,6 @@ def _get_coqui() -> CoquiTTS:
 def _tts_coqui(text: str) -> Path:
     tts = _get_coqui()
     out = _unique_name("tts_coqui", "wav")
-    # Coqui bazý modellerde 'speaker' ve 'language' parametreleri isteyebilir
+    # Coqui bazÄ± modellerde 'speaker' ve 'language' parametreleri isteyebilir
     tts.tts_to_file(text=text, file_path=str(out))
     return out

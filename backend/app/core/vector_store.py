@@ -1,23 +1,23 @@
-"""
+ï»¿"""
 vector_store.py
 -----------------
-FAISS tabanlý vektör maðazasý (Vector Store) sarmalayýcý.
+FAISS tabanlÄ± vektÃ¶r maÄŸazasÄ± (Vector Store) sarmalayÄ±cÄ±.
 
-Özellikler:
-- Metinleri embedding'e çevirip FAISS'e ekler
+Ã–zellikler:
+- Metinleri embedding'e Ã§evirip FAISS'e ekler
 - Diskte indeks + embedding + metadata saklama
-- Sorgu için TOP-K benzer chunk döndürme
-- Cosine (IP + normalize) ya da L2 metrik seçimi
+- Sorgu iÃ§in TOP-K benzer chunk dÃ¶ndÃ¼rme
+- Cosine (IP + normalize) ya da L2 metrik seÃ§imi
 
-Baðýmlýlýklar:
+BaÄŸÄ±mlÄ±lÄ±klar:
  - embeddings.py (get_embedder, embed_texts, build_faiss_index, ensure_index, save_faiss_index, save_embeddings)
 
-Kullaným:
+KullanÄ±m:
     store = VectorStore(book_id="abc123", metric="cosine")
     store.build_from_texts(texts, metadatas)
     hits = store.search("soru metni", top_k=3)
 
-Metadata Þemasý:
+Metadata ÅžemasÄ±:
     [
       {"index": 0, "chunk_id": "...", "text": "...", **extra_meta}
       ...
@@ -48,7 +48,7 @@ class VectorStore:
     def __init__(self, book_id: str, metric: str = "cosine") -> None:
         """
         Args:
-            book_id: Ýçerik kimliði (kitap vb.)
+            book_id: Ä°Ã§erik kimliÄŸi (kitap vb.)
             metric: "cosine" (IP + normalize) | "l2"
         """
         self.book_id = book_id
@@ -88,7 +88,7 @@ class VectorStore:
         if metadatas is None:
             metadatas = [{"index": i, "text": t} for i, t in enumerate(texts)]
         else:
-            # index alaný yoksa ekle
+            # index alanÄ± yoksa ekle
             for i, md in enumerate(metadatas):
                 md.setdefault("index", i)
                 md.setdefault("text", texts[i])
@@ -101,10 +101,10 @@ class VectorStore:
         try:
             self.index = ensure_index(self.book_id, metric=("ip" if self.metric == "cosine" else "l2"))
         except Exception as e:
-            raise FileNotFoundError(f"FAISS index yüklenemedi: {e}")
+            raise FileNotFoundError(f"FAISS index yÃ¼klenemedi: {e}")
         # Metadata
         if not self._meta_path.exists():
-            raise FileNotFoundError(f"Metadata bulunamadý: {self._meta_path}")
+            raise FileNotFoundError(f"Metadata bulunamadÄ±: {self._meta_path}")
         self.metadatas = json.loads(self._meta_path.read_text(encoding="utf-8"))
 
     def is_ready(self) -> bool:
@@ -115,7 +115,7 @@ class VectorStore:
     # -----------------------------
     def add_texts(self, texts: List[str], metadatas: Optional[List[Dict[str, Any]]] = None) -> None:
         if self.index is None:
-            raise RuntimeError("Önce build_from_texts() ya da load() çaðýrýn")
+            raise RuntimeError("Ã–nce build_from_texts() ya da load() Ã§aÄŸÄ±rÄ±n")
         normalize = self.metric == "cosine"
         new_vecs = embed_texts(texts, normalize=normalize)
         self.index.add(new_vecs.astype(np.float32))
@@ -129,7 +129,7 @@ class VectorStore:
                 md.setdefault("text", texts[i])
         self.metadatas.extend(metadatas)
 
-        # persist güncelle
+        # persist gÃ¼ncelle
         save_faiss_index(self.book_id, self.index)
         if self._meta_path.exists():
             old = json.loads(self._meta_path.read_text(encoding="utf-8"))
@@ -144,7 +144,7 @@ class VectorStore:
     # -----------------------------
     def search(self, query: str, top_k: int = 3) -> List[Dict[str, Any]]:
         if self.index is None:
-            raise RuntimeError("Index hazýr deðil. load() ya da build_from_texts() çaðýrýn.")
+            raise RuntimeError("Index hazÄ±r deÄŸil. load() ya da build_from_texts() Ã§aÄŸÄ±rÄ±n.")
         # embed query
         normalize = self.metric == "cosine"
         qvec = embed_texts([query], normalize=normalize)
