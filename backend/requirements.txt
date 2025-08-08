@@ -1,0 +1,26 @@
+# Web framework
+fastapi
+uvicorn
+
+# Embeddings & LLM API Clients
+openai
+requests
+huggingface_hub
+
+# Vektör veritabaný
+faiss-cpu
+
+# Metin iþleme
+tiktoken
+nltk
+
+# Sesli yanýt (TTS) ve ses tanýma (STT)
+gTTS
+SpeechRecognition
+pydub
+
+# PDF ve metin okuma
+PyPDF2
+
+# Ortam deðiþkenleri yönetimi
+python-dotenv
