@@ -1,0 +1,194 @@
+[
+  {
+    "chunk_id": "a7f72d8f-6bb7-44c6-a73f-d5c7d41c929a",
+    "index": 0,
+    "chunk_text": "YMT 312-Yazılım Tasarım Ve Mimarisi Yazılım Mimarileri 1Bölüm-13 Doç. Dr. Resul DAŞ Fırat Ü niversitesi Yaz ılım M ühendisliği Bö lümü YMT312 YAZILIM TASARIM VE MİMARİSİ YMT312 YAZILIM TASARIM VE MİMARİSİ 2 Bu Haftaki Konular İstemci Sunucu Mimarileri……………………………………………...5 Sunucu Türleri……………………………………….……….….............11 Katmanlı Mimariler……………………………………………………….21 WWW Standartları……………………………………………………..…20 WAP Mimarisi……………..…………………………………………….….36 Doç. Dr. Resul DAŞ Amaçlar YMT312 YAZILIM TASARIM VE MİMARİSİ 3 Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 5 İstemci ve Sunucu Arasındaki Farkları Kavramak Sunucu Türlerini Öğrenmek Web Sunucusu Yapısını Kavramak WWW Standartlarını Öğrenmek Yazılım Geliştirmede Katmanlı Mimari Yapılarının Avantajlarını Görmek Katmanlı Mimarilerin Neler Olduğunu Öğrenmek İki Katmanlı ve Üç Katmanlı Mimari Arasındaki Farkları Tartışmak WAP Mimarisi Hakkında Bilgilenmek GİRİŞ 1980'li yılların ortalarına kadar ana bilgisayarların yoğun olarak kullanıldığı dönemde, yazılımların",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "e5665042-77e5-4da9-954f-bb9a187bb2a9",
+    "index": 1,
+    "chunk_text": "hemen hemen tümüyle ana bilgisayarda olduğu, kullanıcıya ilişkin tüm denetim ve paylaşım işlemlerinin yine ana bilgisayarlar üzerinde yapıldığı gözlenmektedir. Grafiksel kullanıcı arabirimi desteklenmemekte ve \"akılsız\" uçlar kanalıyla bilgisayara bağlantı yapılabilmektedir. Programlamanın günümüze göre daha kolay olduğu bu yapılarda, coğrafik olarak birbirinden ayrı bulunan veri tabanlarına erişim ve işlem oldukça sınırlı olmuştur. \"Ana çatı\" ya da \"ana bilgisayar\" mimarileri olarak adlandırılan bu mimarileri, 80'li yılların ortalarında \"kütük paylaşım mimarileri\" izlemiştir. Bu mimarilerde ise bilgiler bir sunucu üzerinde bulunmakta ve kullanıcılar kendi mikrobilgisayarları üzerinde iş yaparak bu bilgileri paylaşmaktadır. Gerek \"ana bilgisayar\" gerekse \"kütük paylaşımı\" mimarileri günümüzde artık kullanılmamakta ve \"geleneksel\" mimariler olarak adlandırılmaktadır. Bu nedenle bu bölümde bu mimarilere yer verilmemiştir. Günümüzde yaygın olarak kullanılan istemci/sunucu mimarileri ve yeni teknolojiler olan",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "d80c4ac4-79d3-4868-934b-d1b01581291f",
+    "index": 2,
+    "chunk_text": "wap mimarisi ve bileşen tabanlı mimariler bu bölümde daha geniş olarak incelenmektedir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 4 İstemci Sunucu Mimarileri Dağıtık bilgi işleme ortamlarının gelişmesinin etkisiyle, istemci sunucu (İ/S) mimarileri yaygınlaşmıştır. İstemci sunucu mimarisinde, yerel alan ağları, geniş alan ağı dağıtık veri işleme ve yönetim ve açık sistem ortamları bulunmaktadır. Yalın tanımıyla İ/S mimarisinde, sunucu yazılımı, istemci yazılımdan gelen istekleri yerine getirerek sonucu istemciye iletir. İstemci sunucudan gelen sonuçları değiştirerek ya da olduğu gibi kullanıcıya sunar. İ/S mimarilerinde temel etmen, donanım değil yazılımdır. Geleneksel mimarilerin tersine, uygulama yazılımı, istemci ve sunucu bilgisayarlarda çalıştırılmak üzere her iki platform için geliştirilir. İstemci ve sunucu arasındaki veri iletişimi ve denetim ilişkisi yazılım aracılığı ile yönetilir. İ/S mimarileri değişik",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "4580992b-f864-4e3d-b8c9-dbf5e12c35f3",
+    "index": 3,
+    "chunk_text": "yapılarda ve ölçeklerde oluşturulabilir. YMT312 YAZILIM TASARIM VE MİMARİSİ 5 Doç. Dr. Resul DAŞ İstemci Sunucu Mimarileri Küçük bir yerel alan ağı üzerinde tek sunucu ile çalışabilecek İ/S mimarileri oluşturulabileceği gibi, binlerce kullanıcıyı yüzlerce sunucuya bağlayan ve geniş alan ağları üzerinde çalışan e-posta servislerini içeren mimariler oluşturulabilir. Ölçeği ne olursa olsun tüm istemci sunucu mimarisindeki yazılımların ortak özellikleri aşağıda belirtilmektedir. ◦ ullanıcılar genel olarak bir yerel ağ üzerinde bulunan sunucularla çalışırlar. Dolaysıyla tipik bir I/S mimarisi varsa geniş alan ağına iletişim sunucusu ile bağlı bir yerel ağ üzerinde kurulur. ◦ Standart bir İ/S mimarisi yoktur, ancak standart İ/S bileşenleri vardır. ◦ Sunucular genellikle belli işlere atanmış güçlü iş istasyonlarından (örneğin kütük sunucuları, yazıcı sunucuları vb) oluşturulur. ◦ İstemciler ise kişisel",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "32e0364a-65e2-4207-80c5-cce3b52b89c1",
+    "index": 4,
+    "chunk_text": "bilgisayar sınıfındaki bilgisayarlardır. El bilgisayarları, akıllı telefon gibi istemciler giderek yaygınlaşmaktadır. ◦ Tipik yerel ağ bileşenleri ise, köprüler, yönlendiriciler, alıcılar, öbekler ve geçitlerden oluşur. ◦ Genellikle her sunucu için gerekli kullanıcı sayısı 10 ile 50 arasında değişir. ◦ Daha geniş ağları oluşturmak amacıyla alt ağlar oluşturma biçiminde tabakalama yapılır. YMT312 YAZILIM TASARIM VE MİMARİSİ 6 Doç. Dr. Resul DAŞ İstemci Sunucu Örnek Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 7 İstek/Request Cevap/Response İstemci/Client Sunucu/Server İstemci İstemci, sunucuya bir iş yapmak ya da servis sağlamak üzere ileti gönderen bir süreç ya da yazılım olarak tanımlanabilir. İstemci programları genellikle uygulamanın kullanıcı arayüzünü yönetirler. Kullanıcı tarafından girilen verinin doğrulanması ve kullanıcı isteğinin sunuculara ayrıştırılması gibi işlemler İstemci yazılımları aracılığı ile yapılır.",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "aecdc74a-e86c-465f-8277-238a1a3d8492",
+    "index": 5,
+    "chunk_text": "Özetle, bir uygulama yazılımının kullanıcı arayüzü ile ilgili yazılım parçaları istemciler üzerinde çalışır. İ/S mimarisinin gelişmesi, kullanıcıya, kişisel bilgisayar tabanlı istemciler kullanmasından dolayı grafiksel arayüz olanakları sağlamıştır. YMT312 YAZILIM TASARIM VE MİMARİSİ 8 Doç. Dr. Resul DAŞ Sunucu İstemci tarafından gereksenen isteği yerine getiren süreç ya da yazılımlar sunucu yazılımları olarak adlandırılır. Sunucu, istemci isteğini alır, gerekli işlemleri yapmak amacıyla veri tabanlarında erişim ve günleme yapar. Sonucu istemciye iletir. Sunucu yazılımları ağ üzerinde bir başka bilgisayarda çalışır. Sunucu, bir ana bilgisayar işletim sistemi, kütük sunucusu ya da uygulama sunucusu olabilir. Sunucular, uygulamanın arka yüzdeki işlemlerini yapar. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 9 Sunucu Tipik bir sunucu yazılımının özellikleri aşağıda belirtilmektedir. ◦Sunucu yazılımı zamanının büyük bir kısmını",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "5be0197a-9d6a-4e21-93b6-e228bb3ccbcd",
+    "index": 6,
+    "chunk_text": "istemciden gelecek istekleri beklemekle geçirir. Söz konusu istekler, iletişim oturumu aracılığı ile ve ileti biçiminde ulaştırılır. Bazı sunucular her istemci için ayrı oturum atarken, diğerleri de tekrar kullanılabilir oturumlar için dinamik atama yaparlar. Sunucu için başarılı olmanın ön koşulu, istemcilere her zaman yanıt verebilmesidir. ◦Sunucu, istemcinin isteğini yerine getirmek durumundadır. Ancak istemci yalnızca bir sunucuya bağlı kalmayabilir. Öte yandan bir sunucu da eş zamanlı olarak birden fazla istemciye servis verebilir. ◦Sunucular, istemcilere değişik düzeylerde servis öncelikleri verebilir. ◦Sunucu, uygulama yazılımının içeriğinden farklı olarak, arka planda başka işlemler yapar. ◦Sunucu yazılımı tipik bir görev-kritik yazılımıdır. Sunucu durduğunda, bağlı tüm istemciler etkilenir. Bu nedenle sunucu yazılımının çalışacağı ortam çok güvenli olmalıdır. ◦Sunucu ortamı, ölçeklenebilir, yükseltilebilir ve modüler olmalıdır. Doç. Dr. Resul DAŞ",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "82184d40-817e-4261-96cc-6859f0d0cf82",
+    "index": 7,
+    "chunk_text": "YMT312 YAZILIM TASARIM VE MİMARİSİ 10 Sunucu Türleri Sunucular için farklı sınıflandırmalar yapılabilir. Bu bölümde: 1. Kütük Sunucuları 2. Veri Tabanı Sunucuları 3. Ara İşlem Sunucuları 4. Nesne Sunucuları 5. Web sunucuları biçiminde bir ayrım verilmektedir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 11 Kütük Sunucuları Bilgisayar ağı üzerindeki tüm kütüklerin paylaşımı, kütük sunucuları aracılığı ile yapılır. Veri servisinin en temel biçimi, istemcinin isteğini kütük sunucu aracılığı ile ağa iletmesi ve sunucunun isteği inceleyerek ağ üzerinde ileti değişimi yoluyla istenen veriye ulaşmasının sağlanmasıdır. Yerel ağ üzerindeki her türlü belge, resim, veri kütüğü vb. nesnelerin paylaşımı kütük sunucuları aracılığı ile yapılır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 12 Veri Tabanı Sunucuları İstemci bir SQL komutu ya",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "80e78785-399c-4453-b4ca-03666f3fc6df",
+    "index": 8,
+    "chunk_text": "da komut kümesini veri tabanı sunucusuna iletir. Her SQL komutunun sonucu, ağ üzerinden istemciye iletilir. SQL isteğini işleyen kod aynı bilgisayarda bulunur. Sunucu, ileti aktarma işlemleri ile uğraşma yerine, işlem gücünü veri tabanından istenen verilerin bulunması ve işlenmesi işlemleri ile uğraşır. SQL sunucuları İ/S uygulamaları oluşturmak için iyi bir örnektir. Oracle, Sybase gibi bir çok veri tabanı yönetim sistemi geliştiricileri için SQL standart veri tabanı dili haline gelmiştir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 13 Ara İşlem Sunucuları İstemcinin uzakta bulunan yordamları çağırması durumunda bu yordamların çalıştırıldığı sunucular ara işlem sunucu olarak adlandırılır. Uzakta bulunan yordamlar bir grup SQL deyimi çalıştırırlar. Bu SQL deyimleri, ara işlem olarak tanımlanır. Ara işlem sunucu ile, hem istemci hem de sunucu",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "fecd896f-41ff-4397-bd4f-7e5f008fcfb1",
+    "index": 9,
+    "chunk_text": "tarafında yazılımlar hazırlanarak uygulama geliştirilebilir. İstemci tarafındaki yazılım genellikle grafiksel kullanıcı arabirimi içerir. Sunucu yazılımı ise bir veritabanı üzerinde çalışacak SQL deyimlerinden oluşur. Bu uygulamalar çevrim içi ara işlem işleme (ÇİAİ-OLTP) olarak adlandırılır. ÇİAİ uygulamaları, veri tabanı üzerinde sıkı denetim, güvenlik ve tamlık gerektirir. İki tür ÇİAİ uygulaması vardır: Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 14 Ara İşlem Sunucuları Kritik ÇİAİ uygulamalarını etkin ve iyi yönetebilmek için ara işlem yöneticileri kullanılır. Ara işlem yöneticisi, ara işlemlerin yönetimi ve işlenmesi için bir \"işletim sistemi\" olarak tanımlanabilir. Temel olarak; ◦Süreç yönetimi (sunucu süreçlerinin başlatılması, yönetimi ve iş yükünün dengelenmesi) ve ◦Ara işlem yönetimi işlevlerini yerine getirirler. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 15 Nesne Sunucuları İ/S",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "2412c717-f846-495c-a127-6ee2a323c023",
+    "index": 10,
+    "chunk_text": "uygulaması, birbiri ile iletişimde bulunan bir nesne kümesi olarak geliştirilir. İstemci nesneleri, sunucu nesneleri ile bir Nesne İstek Yöneticisi (NİY - ORB) aracılığı ile haberleşir. İstemci, uzakta bulunan bir nesneye ilişkin bir metodu çalıştırmak istediğinde NİY, ilgili nesne sınıfına ilişkin varlık oluşturur, istenen metodu çağırır ve sonucu istemci nesnesine iletir. Sunucu nesneleri, paylaşım ve eşzamanlılığı desteklemelidirler. Ticari NİY'lere örnek olarak Digital ObjectBroker, IBM SOM 3.0, Sun's NEO, HP ORB Plus, Expersoft's PowerBroker, ve Iona's Orbix verilebilir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 16 Web Sunucuları Dünya çapındaki Web, ilk galaksiler arası İ/S uygulaması olarak tanımlanabilir. Bu yeni model zayıf, taşınabilir ve \"evrensel\" istemcilerin çok şişman sunucularla iletişimini sağlar. En yalın biçimiyle bir web sunucu, istemcinin ismiyle aradığı",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "b51e3572-2bc3-476b-a58a-14e0d439ff08",
+    "index": 11,
+    "chunk_text": "bir belgeyi kendisine sunar. Web, küresel bir hipertekst sistemidir. Hipertekst, aynı bilgisayar yada bir bilgisayar ağı üzerinde bulunan ilgili belgeleri birbirine bağlayan bir yazılım sistemidir. İstemci ve sunucular, adına Hipertext Transfer Protokolü (HTTP) denilen Uzak Yordam Çağırma (UYÇ -RPC Remote Procedure Call) benzeri bir protokol aracılığı ile iletişim kurar. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 17 Web Sunucuları Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 18 Web Sunucuları HTTP: 1. İ/S bağlantısı kurar, 2. Parametreleri gönderir ve alır, 3. İ/S bağlantısını kapatır. ◦HTTP istemci ve sunucuları ileti içeriklerini göstermek amacıyla internetin MIME veri gösterim yöntemini kullanır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 19 WWW Standartları Genel amaçlı uygulamaların geliştirilmesi amacıyla oluşturulan www",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "baa80eec-4533-479d-9f2d-14e1911017f7",
+    "index": 12,
+    "chunk_text": "standartları geliştirilmiştir. Bu standartlar şu şekildedir; Standart isimlendirme Modeli: Bütün sunucuların isimlendirilmesi ve içeriği için internet Tek Kaynak Yerleştirici (URL-Uniform Resource Locator) standardı (RFC1738,RFC1808) İçerik Türü: WWW üzerindeki her tür içerik, web görüntüleyicilerin işleyebileceği özel bir türe sahiptir (RFC2045, RFC2048) Standart İçerik Biçimi: Bütün web sunucuları bir dizi standart içerik biçimini destekler. Bunlar arasında Hiper Metin Biçimlendirme Dili (HTML-Hypertext Markup Language), JavaScript betik dili(ECMA Script, Javascript) en yaygın olanlarıdır. Standart Protokol: Web görüntüleyicilerin herhangi bir web sunucu ile iletişimini sağlayan ağ protokol standartları arasında en yaygın olan, HiperText Transfer Protokolüdür (HTTP). Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 20 İki Katmanlı Mimariler İki katmanlı mimarilerde, uygulamanın üç temel bileşeni iki katmanda bulunur. Bu bileşenler: ◦Kullanıcı Arayüzü (Grafiksel Kullanıcı",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "624b3612-03d1-4ee2-b79c-d740912751eb",
+    "index": 13,
+    "chunk_text": "Arabirimi, görüntü yönetimi), ◦İşlem yönetimi ( ya da uygulama mantığı) ve ◦Veritabanı yönetimi (veri ve kütük servisleri) biçimindedir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 21 İ: İstemci S: Sunucu İki Katmanlı Mimariler Kullanıcı arayüzü istemci üzerinde bulunur. Veri tabanı yönetimi ise sunucu üzerine yerleştirilir. İşlem yönetimi ya da uygulama mantığı ise istemci ve sunucu arasında paylaştırılır. Birçok iki katmanlı tasarımda, uygulamanın büyük bir kesimi sunucu ortamında bulunur. Bu yolla esneklik ve ölçeklenebilirlik arttırılır. Bu mimari, homojen ortamlarda başarılı sonuçlar verir. İki katmanlı mimariler, 4. kuşak programlama platformlarının da desteği ile, günümüzde, endüstride oldukça yaygınlaşmış ve başarılı bir biçimde uygulanmaktadır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 22 İki Katmanlı Mimariler İki katmanlı mimari, bilgisayar ağı",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "46956c7f-e4c0-48ec-92b8-a4f180a1984b",
+    "index": 14,
+    "chunk_text": "ve sunucunun yeteneklerine göre belirli bir sınıra kadar ölçeklenebilir. 100 kullanıcıya kadar gözlemlenmiş uygulamalar bulunmaktadır. Bunun nedeni, bilgisayar ağının belirli bir yoğunluğa ulaşması ve sunucu üzerindeki işlem yoğunluğudur. Hiçbir veri değişimi olmazsa bile yalnızca ağ üzerinde dolaşan \"istemcileri canlı tutma\" iletileri belirli bir yoğunluğa neden olur. Sunucu üzerinde işlem yapan her istemci bir darboğaz oluşturmaya neden olabilir. Veri tabanı sunucusu üzerinde geliştirilen uygulama mantığı, birlikte çalışılabilirliği azaltır. Çünkü kod, ilgili VTYS dili ile yazılmıştır ve ticari veri tabanları için tanımlanmış standart bir VTYS dili yoktur. Bu nedenle kod bakımı zorlaşır. Öte yandan bu diller, standart programlama dilleri kadar yetenekli değildir. İstemci tarafında, sunucuya erişim amacıyla, SQL ya da UYÇ kullanılır. Yapılacak her değişikliğin tüm istemcilere yansıtılması gerekliliğinden dolayı, istemci tarafının",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "44ca660d-185d-4b0c-8a70-0484059b9f69",
+    "index": 15,
+    "chunk_text": "yönetimi ve bakımı kolay değildir. Ayrıca, bu mimari toplu iş düzeni için uygun değildir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 23 İki Katmanlı Mimari Örnek Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 24 Uygulama İstemci/Client Sunucu/Server Veri Tabanı İstek/Request Cevap/Response Üç Katmanlı Mimariler -1 Üç katmanlı mimarilerde, uygulamanın üç temel bileşeni, üç bağımsız katmanda bulunur. Bu bileşenler: ◦Kullanıcı (sistem) Arayüzü, ◦İşlem Yönetimi (Uygulama Mantığı) ve ◦Veri tabanı servisleri Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 25 İ: İstemci S: Sunucu Üç Katmanlı Mimariler -2 Üç katmanlı mimarilerde veri sunucusu yalnızca veritabanı bilgilerini içerir ve uygulama mantığı ile ilişkisi yoktur. Bu nedenle uygulama mantığına ilişkin herhangi bir VTYS dili kodlaması bu sunucu için gerekmez.",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "3cd81187-546c-4f59-857b-d0e92692745b",
+    "index": 16,
+    "chunk_text": "Bu mimarilerde ara katman sunucusu olan uygulama sunucusu, uygulama mantığını tümüyle içerdiğinden, bakım kolaylığı, esneklik ve ölçeklenebilirlik sağlanır. Değişiklik yönetimi de kolaylaşır. Uygulama sunucusu üzerinde yapılan değişiklikler istemcileri etkilemez. Buna ek olarak, üç katmanlı mimariler güvenilir işlem yapma olanağı sağlar. Üç katmanlı mimarilerde, iki katmanlı mimarilerin tersine yüzlerce kullanıcının desteklenmesi olasıdır. Heterojen yapılar için uygundur. Bu mimari 90'lı yılların başından bu yana kullanılmaktadır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 26 Üç Katmanlı Mimariler -2 En büyük zorluklardan biri, yeterince destekleyen yazılım aracının bulunmayışı ve karmaşıklıktır. Günümüzde geliştirilmiş olan yazılım geliştirme yöntem ve metodoloji çoğu iki katmanlı İ/S sistemlerine yöneliktir. Diğer bir zorluk ise, bu üç katmanın ayrıştırılmasında oluşmaktadır. Bu konuda kullanılabilecek ayrıştırma kriterlerinin bazıları: ◦Geliştirme ve sınama",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "22e549ca-91b1-4d12-b7a1-02f90d9c2ecb",
+    "index": 17,
+    "chunk_text": "kolaylığı, ◦Yönetim kolaylığı, ◦Sunucuların ölçeklenebilirliği ve ◦Performans olarak verilebilir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 27 Üç Katmanlı Mimariler -2 Üç katmanlı mimari üzerinde geliştirilmiş alt yapı yazılımları uygulamalarına örnek olarak aşağıdakiler gösterebilir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 28 Üç Katmanlı Mimari Örnek Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 29 Sunum Katmanı (Presentatio n Layer) İstemci/Client Sunucu/Server İş Katmanı (Business Layer) Veri Katmanı (Data Layer) Sunucu/Server İstemci/Client İki ve Üç Katmanlı Mimarilerin Karşılaştırması İki katmanlı mimarilerde, uygulama mantığı ve veri tabanının aynı bilgisayarda yer alması, sunucu tarafında geliştirilen uygulamanın VTYS'nin kendi dilinde olması nedenleriyle birlikte çalışılabilirlik azalmaktadır. Üç katmanlı mimarilerde ise, ara bir katmanın oluşu bu sınırlamayı kaldırmaktadır. Uygulama mantığının",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "a4cbdd45-dcb6-4781-9f65-ead10408dbc9",
+    "index": 18,
+    "chunk_text": "bu ara katmanda oluşu, istemciyi veri tabanı sunucusundan bağımsız duruma getirmektedir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 30 İki ve Üç Katmanlı Mimarilerin Karşılaştırması Kriter İki Katmanlı Mimari Üç Katmanlı Mimari Birlikte Çalışabilirlik Sınırlı Yüksek Taşınabilirlik Az taşınabilir Daha fazla taşınabilir Yeniden Kullanılabilirlik Sınırlı Yeniden Kullanılabilir Karmaşıklık Yalın Karmaşık Bakım Zor Kolay Geliştirme Süresi Daha az başlangıç geliştirme süresi Daha az ardışık geliştirme süresi Ölçeklenebilirlik 100 kullanıcıya kadar 1000 kullanıcıya kadar Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 31 İki ve Üç Katmanlı Mimarilerin Karşılaştırma Kriterleri İki katmanlı mimarilerde, taşınabilirlik bir bakıma sınırlıdır. Mevcut iki katmanlı mimari uygulamaları, yordamlara ilişkin kodları tekrar üretmeden bir başka ortama taşınamamaktadır. Üç katmanlı mimarilerde ise, ara katman aracılığı ile",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "b1a9d306-b99f-413f-b957-deefbe6c39f2",
+    "index": 19,
+    "chunk_text": "bu sorun çözülmektedir. Ara katman yazılımının modüler biçimde geliştirilmesi, herhangi bir sorunla karşılaşılmaksızın sunucu kesiminde ya da istemci kesiminde herhangi bir zorlukla karşılaşılmaz. İki katmanlı uygulamalarda yeniden kullanılabilirlik ana hedef değildir ve oldukça sınırlıdır. Üç katmanlı mimariler ise değişik açılardan yeniden kullanılabilirliği sağlarlar. İlk olarak, ara katmanda geliştirilmiş olan uygulama mantığı yazılımı fazla değiştirilmeden başka uygulamalarda yeniden kullanılabilir. Diğer taraftan NİY modeli, nesne kökenli yaklaşımla geliştirilmiş uzak nesnelerin yeniden kullanılmasını olanaklı kılar. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 32 İki ve Üç Katmanlı Mimarilerin Karşılaştırma Kriterleri Karmaşıklık açısından incelendiğinde, iki katmanlı mimarilerin, üç katmanlı mimarilere oranla daha yalın olduğu söylenilebilir. En azından bu yalınlığın nedeni üç katman yerine iki katman bulunmasıdır. Buna ek olarak, uygulama geliştirme iki",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "2da94040-fcfa-4c78-bc36-dee08c9cebf9",
+    "index": 20,
+    "chunk_text": "katmanlı mimarilerde daha kolaydır. Üç katmanlı mimari yazılımlarının geliştirilmesine yönelik araç, yöntem ve metodolojilerin azlığı da bu mimariler için bir başka karmaşıklık nedenidir. Bakım açısından bakıldığında ise üç katmanlı mimarilerin iki katmanlı mimarilere oranla daha kolay bakılabilir olduğu açıktır. Bu kolaylık ara katman sayesinde sağlanır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 33 İ/S Mimarisinin Yararları ve Aksak Yönleri İstemci sunucu mimarisi yazılımlarının yararları aşağıda belirtilmektedir. ◦Gelişen masaüstü teknolojisinin etkin olarak kullanılmasını olanaklı kılar. Bu yolla maliyetleri azaltır. ◦Varolan altyapı ve aygıtları kullanarak kurumların yapılarını korur. ◦İşlem ve işlenecek verinin birbirine yakın olmasını sağlayarak ağ trafiğini azaltır ve yanıt süresini kısaltır. Ağ için gerekli bant genişliği düşer. ◦Anabilgisayar mimarileri yazılımlarına oranla yazılım geliştirme süresi kısalır. Önyüz ve arka",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "9d9b6b11-45bf-47f4-8842-95c55ad1b0bf",
+    "index": 21,
+    "chunk_text": "yüz işlemleri ayrı olduğundan bakım kolaylaşır. ◦Grafiksel Kullanıcı Arayüzünü destekler. Böylelikle eğitim için gerekli yatırım maliyetlerini azaltır. ◦Açık sistem mimarisini destekler. Bu yolla kullanıcılara marka esnekliği sağlar. ◦Yeni yazılım bileşenlerinin eklenmesi oldukça kolaydır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 34 İ/S Mimarisinin Yararları ve Aksak Yönleri İ/S mimarisinin aksak yönleri ise: ◦Uygulama mantığının büyük ölçüde sunucu üzerinde gerçekleştirilmesi durumunda darboğaz oluşabilir. ◦Özellikle, birlikte çalışabilecek biçimde tasarlanmış dağıtık uygulamalar, dağıtık olmayan uygulamalara oranla çok daha fazla karmaşıktır. ◦Varolan geliştirme metodolojileri ve yöntem ve araçlar sınırlıdır. biçiminde özetlenebilir. Sonuç olarak İ/S mimarileri yazılım bakım maliyetlerini düşürür, yazılım taşınabilirliğini arttırır ve ağ performansını etkinleştirir. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 35 WAP MİMARİSİ Kablosuz Uygulama Protokolü WAP",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "1fa3db0d-c028-414f-ba87-dc6c99d96276",
+    "index": 22,
+    "chunk_text": "(Wireless Application Protocol), kablosuz iletişim ağları üzerinde uygulama geliştirmek ve işletmek amacıyla geliştirilmiştir. WAP kablosuz aygıtlar (telsiz telefonlar, cep telefonları, kişisel el bilgisayarları vb) için bir uygulama altyapısı ve ağ protokolleri tanımlar. WAP, oldukça hızlı gelişen iki temel teknoloji üzerinde konumlanmıştır: Kablosuz Veri ve Internet. İnternet üzerinde geliştirilen teknolojilerin çoğu masaüstü ya da daha büyük boyutlu bilgisayarlar için tasarlanmıştır. Cep telefonu ve benzeri kablosuz aygıtların hesaplama ve bilgi saklama yetenekleri daha sınırlıdır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 36 WAP teknolojisi Amaçları Daha az güçlü merkezi işlem birimi, Daha az ana bellek gücü, Sınırlı güç tüketimi Farklı giriş-çıkış aygıtları Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 37 WAP Programlama Modeli WAP programlama modeli, www programlama",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "1e15c57f-374b-430e-9d5a-0ee5fbfcbbb4",
+    "index": 23,
+    "chunk_text": "modeli ile oldukça benzerlikler göstermektedir. www programlama altyapısında kullanılan araç ve yöntemler, daha küçük ölçekte olmak üzere WAP programlama platformunda kullanılabilmektedir. Kablosuz ortamı www ile birleştirmek amacıyla, WAP, proksi teknolojisini kullanmaktadır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 38 WAP Programlama Modeli WAP Proxy tipik olarak aşağıda belirtilen işlemleri yerine getirmektedir: Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 39 a. Protokol Ağ Geçidi: Bu geçit WAP, protokolünü (WSP,ETP,WTLS, ve WDTP) www protokolüne (http ve TCP/IP) dönüştürür. b. İçerik şifreleyici ve deşifreleyiciler: Ağ üzerinde dolaşan veri hacmini sınırlamak amacıyla şifreleme ve deşifreleme işlemleri bu araçlar aracılığı ile yapılır. WAP Ağı Nasıl Çalışır? WAP istemci, kablosuz ağ üzerinde iki sunucu ile iletişim kurmaktadır. WAP proxy, WAP isteklerini WWW",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "d9824b59-6d4c-44a3-bee1-0c8ac7951865",
+    "index": 24,
+    "chunk_text": "isteği biçimine dönüştürmekte ve web sunucudan gelen yanıtları ikili biçim şeklinde şifrelemektedir. Web sunucunun, WAP içeriği sağlaması (örneğin WML) durumunda WAP proksi bu içeriği doğrudan web sunucudan almaktadır. Web sunucunun www içeriği (örneğin HTML) sağlaması durumunda ise www içeriğini WAP içeriğine dönüştürecek bir HTML süzgeci kullanılmaktadır. Örneğin, HTML süzgeci HTML kodunu WML koduna dönüştürmektedir. Kablosuz Telefon Uygulama (WTA-Wireless Telephony Application) sunucusu, WAP istemcisine doğrudan yanıt veren ağ geçit sunucusu için iyi bir örnektir. WTA, kablosuz ağ sağlayıcıların Telekom alt yapısını kullanır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 40 WAP Ağı Çalışma Örnek Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 41 Bileşen-Tabanlı Mimariler Günümüzde, internet kullanımının giderek yaygınlaşması ve elektronik ticaret, e-iş kavramlarının uygulamaya geçirilmesi, uygulama",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "bd520ce9-b3ea-4391-acf5-1c798640896e",
+    "index": 25,
+    "chunk_text": "ortamlarının dağıtık ve heterojen yapıya dönüşmesi sonucunda \"yeniden kullanılabilirlik\" olgusu giderek önem kazanmış ve bileşen tabanlı mimari kavramı gündeme gelmiştir. Donanım üreticilerinin yıllardır standart bileşenler üretip bu bileşenleri birleştirerek ürün oluşturdukları bilinmektedir. ◦Örneğin, bir otomobil, aynı ya da farklı üreticilerden edinilen parçaların bir araya getirilmesi ile oluşturulabilir. Günümüzde otomobil üretimi büyük ölçüde bu biçimde yapılmaktadır. Donanım üreticilerinin bu üretim tarzını yazılım üretimine uygulamaya çalıştığımızda \"Bileşen Tabanlı\" yazılım mimarileri ortaya çıkar. Yazılım bileşeni, \"çalışan yazılım yapıtaşları\" ya da işletim zamanında birlikte çalışmak üzere bütünleştirilebilen yazılım parçası olarak tanımlanmaktadır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 42 Bileşen-Tabanlı Mimariler Küçük boyutlu yazılım teknolojilerine örnek olarak: java Beans, OLE/COM ve DCOM verilebilir. Bir yazılım bileşeni, üç temel parçadan oluşur: Kullanıcı Arayüzü,",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "7ba5d91b-5c7f-4a01-a978-f77e8b0ff4b5",
+    "index": 26,
+    "chunk_text": "Yöntemler ve Amaç Kod. Arayüz, bileşenin nasıl kullanacağını; yöntemler, bileşenin işlevselliğini; amaç kodu ise bileşenin doğrudan çalışabilir kodunu içerir. Bir bileşen, açıklayıcı, içerilebilir, değiştirilebilir ve genişletilebilir özellikleri içermelidir. Bu dört özellik bir bileşen oluşturmak için sağlanması zorunlu koşullardır. Öte yandan, bir bileşen uygulama, dil ya da platform ile sınırlı değildir. Bileşen tabanlı mimarilerde, ayrıntı tasarım daha az önem kazanmakta, çalışma daha çok genel tasarım ve arayüz tasarımı üzerinde yoğunlaşmaktadır. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 43 Bileşen Tabanlı Yazılım Geliştirmede Kullanılan Metodolojiler Bileşen tabanlı yazılım geliştirmede kullanılan metodolojiler: ◦Bileşenin destekleyeceği iş fonksiyonlarına dayalı sistem gereklerinin açık tanımlamaları, ◦Sistemin her süreç için davranış çözümlemesi, ◦Arayüz tanımları ve aralarındaki ilişkiler, ◦Birleştirme, yeniden kullanım ve sistem iş akış kodlarının ayrıntılı",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "cf72c6cb-a85e-473e-9459-8ae617ddbba4",
+    "index": 27,
+    "chunk_text": "tanımları üzerinde yoğunlaşırlar. Doç. Dr. Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 44 Özet İstemci: Sunucuya bir iş yapmak ya da servis sağlamak üzere ileti gönderen bir süreç ya da yazılım olarak tanımlanabilir. Sunucu: İstemci tarafından gereksenen isteği yerine getiren süreç ya da yazılımlar sunucu yazılımları olarak adlandırılır. Sunucu Türleri: 1. Kütük Sunucuları 2. Veri Tabanı Sunucuları 3. Ara İşlem Sunucuları 4. Nesne Sunucuları 5. Web sunucuları şeklindedir. HTTP: 1. İ/S bağlantısı kurar, 2. Parametreleri gönderir ve alır, 3. İ/S bağlantısını kapatır. YMT312 YAZILIM TASARIM VE MİMARİSİ 45 Doç. Dr. Resul DAŞ Özet WWW standartları şu şekildedir. ◦Standart isimlendirme Modeli: Bütün sunucuların isimlendirilmesi ve içeriği için internet Tek Kaynak Yerleştirici (URL-Uniform Resource Locator) standardı (RFC1738,RFC1808) ◦İçerik Türü: WWW üzerindeki her",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "47951738-f438-4bcf-9ee1-e2031315b7ef",
+    "index": 28,
+    "chunk_text": "tür içerik, web görüntüleyicilerin işleyebileceği özel bir türe sahiptir (RFC2045, RFC2048) ◦Standart İçerik Biçimi: Bütün web sunucuları bir dizi standart içerik biçimini destekler. Bunlar arasında Hiper Metin Biçimlendirme Dili (HTML-Hypertext Markup Language), JavaScript betik dili(ECMA Script, Javascript) en yaygın olanlarıdır. ◦Standart Protokol: Web görüntüleyicilerin herhangi bir web sunucu ile iletişimini sağlayan ağ protokol standartları arasında en yaygın olan, HiperText Transfer Protokolüdür (HTTP). İki katmanlı mimarilerde, uygulamanın üç temel bileşeni iki katmanda bulunur. Bu bileşenler: Kullanıcı Arayüzü (Grafiksel Kullanıcı Arabirimi, görüntü yönetimi), İşlem yönetimi ( ya da uygulama mantığı) ve Veritabanı yönetimi (veri ve kütük servisleri)’dir. Üç katmanlı mimarilerde, uygulamanın üç temel bileşeni, üç bağımsız katmanda bulunur. Bu bileşenler: Kullanıcı (sistem) Arayüzü,İşlem Yönetimi (Uygulama Mantığı) ve Veri tabanı servisleridir. Doç. Dr.",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "5fdcdafb-7fd5-46ff-a9b4-aa773425efd1",
+    "index": 29,
+    "chunk_text": "Resul DAŞ YMT312 YAZILIM TASARIM VE MİMARİSİ 46 Sorular 1. Yazılım Mimarisi terimini açıklayınız. 2. Yazılım mimarilerini sınıflandırınız. 3. Geleneksel yazılım mimarileri ile istemci sunucu mimarileri arasındak,i farklılıkları belirtiniz. 4. Çevrim içi araişlem işlemeyi tanımlayınız. 5. 2-katmanlı mimari ve 2-katmanlı mimarileri karşılaştırınız. 6. 2 katmanlı ve 3 katmanlı mimarilere uygun olmayan uygulama örnekleri veriniz. 7. Katmanlı mimarilerin uygulama alanlarını belirtiniz. 8. Ağ trafiği üzerindeki etkileri açısından iki ve üç katmanlı İ/S mimarilerini karşılaştırınız. 9. Web mimarisinde kullanılan standartları belirtiniz. Standart kullnımının önemini açıklayınız. 10. WAP mimarisinin ayırıcı özellikleri nelerdir? 11. WAP uygulamaları geliştirme ve kullanılan araç ve yöntemler açısından diğer uygulamalarla kıyaslayınız. 12. Bileşen tabanlı uygulama mimarisini açıklayınız. 13. Bileşen tabanlı uygulama mimarisi ile istemci sunucu mimarisini kıyaslayınız. 14. Bileşen",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "58ae95f4-238a-4a4a-8278-c491d5549470",
+    "index": 30,
+    "chunk_text": "ile nesne arasındaki benzerlik ve farklılıkları belirtiniz. YMT312 YAZILIM TASARIM VE MİMARİSİ 47 Doç. Dr. Resul DAŞ Kaynaklar “Software Engineering A Practitioner’s Approach” (7th. Ed.), Roger S. Pressman, 2013. “Software Engineering” (8th. Ed.), Ian Sommerville, 2007. “Guide to the Software Engineering Body of Knowledge”, 2004. ” Yazılım Mühendisliğine Giriş”, TBİL-211, Dr. Ali Arifoğlu. ”Yazılım Mühendisliği” (2. Basım), Dr. M. Erhan Sarıdoğan, 2008, İstanbul: Papatya Yayıncılık. Kalıpsiz, O., Buharalı, A., Biricik, G. (2005). Bilgisayar Bilimlerinde Sistem Analizi ve Tasarımı Nesneye Yönelik Modelleme. İstanbul: Papatya Yayıncılık. Buzluca, F. (2010) Yazılım Modelleme ve Tasarımı ders notları (http://www.buzluca.info/dersler.html) Hacettepe Üniversitesi BBS-651, A. Tarhan, 2010. Yazılım Proje Yönetimi, Yrd. Doç. Dr. Hacer KARACAN YMT312 YAZILIM TASARIM VE MİMARİSİ 48 Doç. Dr. Resul DAŞ 47 Ödev",
+    "token_count": 120
+  },
+  {
+    "chunk_id": "3d434980-06dc-4538-b3c8-4dccd55970ba",
+    "index": 31,
+    "chunk_text": "? YMT312 YAZILIM TASARIM VE MİMARİSİ Doç. Dr. Resul DAŞ Sorularınız Doç. Dr. Resul DAŞ 50",
+    "token_count": 16
+  }
+]
